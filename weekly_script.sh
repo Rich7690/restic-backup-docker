@@ -1,8 +1,8 @@
 #!/bin/ash
-set -e 
+set -xe
 set -o pipefail
 
-curl --retry 3 $HEALTH_CHECK_URL/start
+curl --no-progress-meter -i --retry 3 $HEALTH_CHECK_URL/start
 
 echo "Backing up storage drive"
 test -e /bin/excludes.txt
@@ -12,7 +12,7 @@ echo "Syncing to b2"
 echo "Syncing to gdrive"
 /bin/rclone sync /storage/ServerBackup gcache:/ServerBackup
 echo "calling ping service"
-curl -f --retry 3 $HEALTH_CHECK_URL
+curl --no-progress-meter -i -f --retry 3 $HEALTH_CHECK_URL
 
 
 
