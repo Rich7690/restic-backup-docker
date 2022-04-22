@@ -5,8 +5,8 @@ ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Get task-mon for health check integration
-ADD https://github.com/dimo414/task-mon/releases/download/0.2.0/task-mon.v0.2.0.x86_64-linux-gnu /bin/task-mon
-RUN chmod +x /bin/task-mon
+ADD https://github.com/bdd/runitor/releases/download/v0.9.2/runitor-v0.9.2-linux-amd64 /bin/runitor
+RUN chmod +x /bin/runitor
 
 # Get restic executable
 ARG RESTIC_VERSION=0.13.1
