@@ -34,14 +34,14 @@ RUN touch /var/log/cron.log
 
 WORKDIR "/"
 
-ENV RCLONE_CONFIG=/storage/dev/server-config/rclone.conf
+ENV RCLONE_CONFIG=/secrets/rclone.conf
 ENV RCLONE_DRIVE_USE_TRASH=false
 ENV RCLONE_STATS=1m
 ENV RCLONE_STATS_ONE_LINE_DATE=true
-ENV RCLONE_CONFIG_DIR=/storage/dev/server-config/
+ENV RCLONE_CONFIG_DIR=/secrets
 ENV RCLONE_PROGRESS=true
 ENV RCLONE_FAST_LIST=true
-ENV RESTIC_PASSWORD_FILE=/storage/dev/server-config/pass_file.txt
+ENV RESTIC_PASSWORD_FILE=/secrets/pass_file.txt
 ENV RCLONE_TRANSFERS=8
 
 ENTRYPOINT ["/entry.sh"]
