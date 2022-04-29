@@ -4,11 +4,6 @@ set -o pipefail
 
 echo "Backing up storage drive"
 test -e /config/excludes.txt
-/bin/restic --exclude-file=/config/excludes.txt -r /storage/ServerBackup backup /storage
+/bin/restic --exclude-file=/config/excludes.txt -r /backup/ServerBackup/ backup /storage
 echo "Syncing to b2"
-/bin/rclone sync --b2-hard-delete /storage/ServerBackup b2:Backup-rt/restic
-echo "Syncing to backup drive"
-rsync -a /work/storage/ServerBackup/ /backup/ServerBackup/
-
-
-
+/bin/rclone sync --b2-hard-delete /backup/ServerBackup/ b2:Backup-rt/restic
