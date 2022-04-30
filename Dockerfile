@@ -1,6 +1,6 @@
 #FROM debian:stable
 FROM alpine:3.14
-RUN apk add ca-certificates tzdata curl
+RUN apk add ca-certificates tzdata curl rsync
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
