@@ -31,6 +31,9 @@ COPY entry.sh /entry.sh
 COPY *.sh /bin/
 
 RUN touch /var/log/cron.log
+RUN mkdir /secrets
+
+VOLUME [ "/secrets" ]
 
 WORKDIR "/"
 
